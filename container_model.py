@@ -102,17 +102,18 @@ class PhpmyadminProvisioning:
                         mysql_port=self.userdb[f"{self.username}_mysql_port"])
             return dict(status="OK",info=info)
         except Exception as e:
+            return f"{e.__class__.__name__}:{e}"
             return dict(status="ERROR")
 
 
 def run():
     c = PhpmyadminProvisioning()
     #create resource phpmyadmin-mysql
-#    info = c.create(username='royyana')
+    info = c.create(username='royyana')
 
     #get resource info phpmyadmin-mysql
-    info = c.get(username='royyana')
-    c.delete(username='royyana')
+    #info = c.get(username='royyana')
+    #c.delete(username='royyana')
 
 if __name__=='__main__':
     run()

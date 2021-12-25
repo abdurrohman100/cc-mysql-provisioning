@@ -16,6 +16,7 @@ class PhpmyadminsAPI(Resource):
             s = self.cp.create(username=self.datakirim['username'])
             return jsonify(s)
         except:
+            return f"{e.__class__.__name__}:{e}"
             return jsonify(dict(status='ERROR'))
 
 
