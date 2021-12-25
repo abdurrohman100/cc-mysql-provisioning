@@ -1,1 +1,1 @@
-docker build -t mysql-provisioning:latest .
+docker build -q -t mysql-provisioning:latest .
